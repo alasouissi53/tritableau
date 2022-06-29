@@ -1,25 +1,31 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <title>Insertion</title>
-    <script>
-        function addtolist()
-        {
-            document.getElementById('l').value = document.getElementById('l').value 
-            + ' ' + document.getElementById('c').value 
-        }
-    
-    </script>
-</head>
-
 <body>
-    
-    <form action="calcul.php" method="post">
-        Inserer element: <input type="text" id="c" >
-        <button type="button" onclick="addtolist()"> ADD </button> <br><br><br>
-        Liste des entiers inseres: <input type="text" id="l" name="l">
-        <br><br>
-        <input type="submit">
-    </form>
+
+Votre tableau est : <br> <?php echo  $_POST["l"]; ?><br> 
+Votre tableau est : <br> <?php echo  $_POST["l"]; ?><br>
+
+<?php
+$t = explode(" ",$_POST["l"]);
+sort($t);
+
+$ma = max($t);
+
+echo "Votre tableau est : <br>". $t ."<br>";
+
+echo "Votre tableau trié est : <br>" ;
+
+
+$clength=count($t);
+echo " clength = ".$clength ."<br>";
+for($i=0;$i<$clength;$i++)
+  {
+  echo $t[$i]." ";
+  }
+
+echo "<br>";
+echo "Min est : ". $t[2] . "<br>";
+echo "Max est : ". $ma . "<br>";
+?>
+
 </body>
-</html
+</html>
